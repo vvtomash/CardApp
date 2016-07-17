@@ -1,14 +1,17 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+module.exports = module.exports = (router) => {
+  router.get('/', (req, res, next) => {
+    res.render('index', { title: 'Users' });
+  });
 
-/* GET users listing. */
-router.get('/:id', function(req, res, next) {
-  res.send(req.params.id);
-});
+  router.get('/profile', (req, res, next) => {
+    res.send('return profile');
+  });
 
-module.exports = router;
+  router.get('/:id', (req, res, next) => {
+    res.send(req.params.id);
+  });
+
+  return router;
+};

@@ -6,19 +6,19 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 
-var app = require('./app');
-var debug = require('debug')('CardApp:server');
-var http = require('http');
-var config = require('config');
+const app = require('./app');
+const debug = require('debug')('CardApp:server');
+const http = require('http');
+const config = require('config');
 
-var port = normalizePort(config.port);
+const port = normalizePort(config.port);
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
