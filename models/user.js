@@ -14,4 +14,10 @@ var User = db.define('user', {
     timestamps: false
 });
 
+User.loginIncrease = (user) => {
+    user.updateAttributes({
+        logins: ++user.logins,
+        last_login: db.fn('unix_timestamp')
+    });
+}
 module.exports = User;
